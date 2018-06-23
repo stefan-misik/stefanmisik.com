@@ -1,0 +1,621 @@
+/*
+   Page style guidelines:
+   - Colors:
+     Primary text color:     #222
+     Highlighted text color: #777
+     Primary color:          #0366ab
+     Secondary color:        #024472
+     Block background color: #f3f3f3
+     Error color:            #d22
+   - Distances:
+     Block spacing:          1em
+ */
+
+/******************************************************************************/
+/* Reset                                                                      */
+/******************************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0b1 | 201101 
+   NOTE: WORK IN PROGRESS
+   USE WITH CAUTION AND TEST WITH ABANDON */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section
+{
+	display: block;
+}
+
+body
+{
+	line-height: 1;
+}
+
+ol, ul
+{
+	list-style: none;
+}
+
+blockquote, q
+{
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after
+{
+	content: '';
+	content: none;
+}
+
+:focus
+{
+	outline: none;
+}
+
+ins
+{
+	text-decoration: underline;
+}
+
+del
+{
+	text-decoration: line-through;
+}
+
+table
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/******************************************************************************/
+/* General                                                                    */
+/******************************************************************************/
+/*** Fonts ***/
+body
+{
+    font-family: Helvetica, Arial, sans-serif;
+}
+code, pre
+{
+    font-family: 'Consolas', monospace;
+}
+
+/** Buttons **/
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+{
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    color: #777;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #777;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus
+{
+    color: #222;
+    border-color: #777;
+    outline: 0;
+}
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary
+{
+    color: #fff;
+    background-color: #0366ab;
+    border-color: #0366ab;
+}
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus
+{
+    color: #fff;
+    background-color: #024472;
+    border-color: #024472;
+}
+
+/** Forms **/
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select
+{
+    height: 38px;
+    /* The 6px vertically centers text on FF, ignored by Webkit */
+    padding: 6px 10px;
+    background-color: #fff;
+    border: 1px solid #777;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea
+{
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+textarea
+{
+    min-height: 65px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus
+{
+    border: 1px solid #0366ab;
+    outline: 0;
+}
+label,
+legend
+{
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+}
+fieldset
+{
+    padding: 0;
+    border-width: 0;
+}
+input[type="checkbox"],
+input[type="radio"]
+{
+    display: inline;
+}
+label > .label-body
+{
+    display: inline-block;
+    margin-left: .5rem;
+    font-weight: normal;
+}
+
+/******************************************************************************/
+/* Page Layout                                                                */
+/******************************************************************************/
+.page-section
+{
+    max-width: 645px;
+    margin: 0 auto 1em auto;
+    padding: 0 1em;
+}
+
+.page-section-divider
+{
+    max-width: 440px;
+    margin: 0 auto 1em auto;
+    border-top: 1px solid #777;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.page-logo
+{
+    display: block;
+    width: 300px;
+    height: 140px;
+    margin: 0 auto;
+    pointer-events: none;
+}
+
+/* Center section headers */
+section header h1,
+section header h2,
+section header h3,
+section header h4,
+section header h5,
+section header h6
+{
+    text-align: center;
+}
+
+.nav-title
+{
+    color: #024472 !important;
+    font-size: 1em !important;
+    margin-top: 2em !important;
+}
+
+/******************************************************************************/
+/* Content                                                                    */
+/******************************************************************************/
+/*** Spacing ***/
+.page-content p,
+.page-content ul,
+.page-content ol,
+.page-content table,
+.page-content pre,
+.page-content header,
+.page-content footer,
+.page-content section
+{
+    margin-bottom: 1em;
+}
+
+.page-content ul,
+.page-content ol
+{
+    padding-left: 2em;
+}
+
+.page-content p
+{
+    text-align: justify;
+}
+
+.page-content p,
+.page-content li
+{
+    line-height: 1.8em;
+}
+
+.page-content pre
+{
+    line-height: 1.2em;
+    font-size: 0.85em;
+}
+
+/*** Code ***/
+.page-content code
+{
+    background-color: #f3f3f3;
+	padding: 0.2em;
+}
+
+.page-content pre code
+{
+    display: block;
+	overflow-x: auto;
+}
+
+/*** Headings ***/
+.page-content h1
+{
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.page-content h2
+{
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.page-content h3
+{
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.page-content h4
+{
+    font-size: 1em;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.page-content h5
+{
+    font-size: 0.83em;
+    margin-top: 1.67em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.page-content h6
+{
+    font-size: 0.67em;
+    margin-top: 2.33em;
+    margin-bottom: 2.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+/*** Fornt styles ***/
+.page-content strong
+{
+    font-weight: bold;
+}
+
+.page-content em
+{
+    font-style: italic;
+}
+
+.page-content a
+{
+    color: #0366ab;
+    text-decoration: none;
+}
+.page-content a:hover
+{
+    text-decoration: underline;
+}
+
+.page-content a.external::after
+{
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTc5MiIgaGVpZ2h0PSIxNzkyIiB2aWV3Qm94PSIwIDAgMTc5MiAxNzkyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xNDA4IDkyOHYzMjBxMCAxMTktODQuNSAyMDMuNXQtMjAzLjUgODQuNWgtODMycS0xMTkgMC0yMDMuNS04NC41dC04NC41LTIwMy41di04MzJxMC0xMTkgODQuNS0yMDMuNXQyMDMuNS04NC41aDcwNHExNCAwIDIzIDl0OSAyM3Y2NHEwIDE0LTkgMjN0LTIzIDloLTcwNHEtNjYgMC0xMTMgNDd0LTQ3IDExM3Y4MzJxMCA2NiA0NyAxMTN0MTEzIDQ3aDgzMnE2NiAwIDExMy00N3Q0Ny0xMTN2LTMyMHEwLTE0IDktMjN0MjMtOWg2NHExNCAwIDIzIDl0OSAyM3ptMzg0LTg2NHY1MTJxMCAyNi0xOSA0NXQtNDUgMTktNDUtMTlsLTE3Ni0xNzYtNjUyIDY1MnEtMTAgMTAtMjMgMTB0LTIzLTEwbC0xMTQtMTE0cS0xMC0xMC0xMC0yM3QxMC0yM2w2NTItNjUyLTE3Ni0xNzZxLTE5LTE5LTE5LTQ1dDE5LTQ1IDQ1LTE5aDUxMnEyNiAwIDQ1IDE5dDE5IDQ1eiIgZmlsbD0iIzAzNjZhYiIvPjwvc3ZnPgo=);
+    background-size: cover;
+    content: " ";
+    display: inline-block;
+    height: 12px;
+    margin-left: .25rem;
+    position: relative;
+    top: .2rem;
+    width: 12px;
+}
+
+/*** Tables ***/
+.page-content table
+{
+    margin: 0 auto 1em auto;
+    border-top: 2px solid #222;
+    border-bottom: 2px solid #222;
+}
+
+.page-content table th
+{
+    font-weight: bold;
+}
+
+.page-content table thead
+{
+    border-bottom: 1px solid #222;
+}
+
+.page-content table td,
+.page-content table th
+{
+    padding: 0.5em 1em;
+}
+
+.page-content hr
+{
+    max-width: 50px;
+    margin: 0 auto 1em auto;
+    border: none;
+    border-top: 5px dotted #222;
+}
+
+/*** Lists ***/
+.page-content ul
+{
+    list-style: disc;
+}
+.page-content ul ul
+{
+    list-style: circle;
+}
+.page-content ul ul ul
+{
+    list-style: square;
+}
+
+.page-content ol
+{
+    list-style: decimal;
+}
+.page-content ol ol
+{
+    list-style: lower-alpha;
+}
+
+/*** Equations ***/
+.page-content p.equation
+{
+    text-align: center;
+}
+
+/*** Figures ***/
+.page-content img
+{
+	max-width: 100%;
+}
+
+/*** Block quote ***/
+.page-content blockquote
+{
+    border-left: 2px solid #777;
+    padding-left: 2em;
+}
+.page-content blockquote *
+{
+    color: #777;
+    border-color: #777;
+}
+
+
+/*** Page content header ***/
+.page-content header h1
+{
+    text-align: center;
+}
+.page-content header aside
+{
+    color: #777;
+    text-align: center;
+}
+.page-content header aside a
+{
+    color: #777;
+}
+.page-content header aside ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.page-content header aside ul,
+.page-content header aside li
+{
+    display: inline;
+}
+
+/*** Navigation ***/
+.page-content nav ul
+{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+.page-content nav li
+{
+    margin-bottom: 0.5em;
+}
+.page-content nav a
+{
+    color: #222;
+    font-size: 1.33em;
+}
+
+/******************************************************************************/
+/* Footer                                                                     */
+/******************************************************************************/
+/* Contact form row */
+.cf-row
+{
+    margin: 1em 0;
+}
+/* Contact form error input */
+input.cf-error,
+textarea.cf-error
+{
+    border-color: #d22;
+    background-color: #fdd;
+}
+input.cf-error:focus,
+textarea.cf-error:focus
+{
+    background-color: #fff;
+    border-color: #0366ab;
+}
+p.cf-error
+{
+    color: #d22;
+}
+
+/******************************************************************************/
+/* Footer                                                                     */
+/******************************************************************************/
+/* Aside */
+.page-footer aside
+{
+    font-size: 0.9em;
+    color: #777;
+    text-align: center;
+}
+.page-footer aside nav
+{
+    margin-bottom: 1em;
+}
+.page-footer aside a,
+.page-footer aside nav
+{
+    font-weight: bold;
+    color: #222;
+}
+
+.page-footer aside a
+{
+    text-decoration: none;
+}
+.page-footer aside a:hover
+{
+    text-decoration: underline;
+}
