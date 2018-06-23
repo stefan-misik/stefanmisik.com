@@ -1,0 +1,8 @@
+# Netbeans project files
+nbproject/
+
+# Vim temporary files
+*.swp
+
+# Chacke files (e.g. PHPUnit)
+*.cache

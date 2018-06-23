@@ -1,0 +1,15 @@
+RewriteEngine on
+
+# Ensure 'https://www.'
+RewriteCond %{HTTPS} !^on            [OR]
+RewriteCond %{HTTP_HOST} !^www\.     [NC,OR]
+RewriteCond %{HTTP_HOST} \.eu$       [NC]
+RewriteRule ^ https://www.stefanmisik.com%{REQUEST_URI} [L,R]
+
+# Redirect to favicon
+RewriteRule ^favicon.ico$ public/favicon.ico [L]
+
+# Redirect nice URIs
+RewriteCond %{REQUEST_URI} !^/index.php
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^.*$ index.php [L,QSA]
